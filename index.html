@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Sakhii 🌸</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ===== FIX 1: SOLID BACKGROUND (NO FADE) ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f2027;
+    color: #f7f3e9;
+}
+
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3.2rem;
+    color: #d4af37;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: #e0d9c6;
+    margin-bottom: 70px;
+}
+
+.card {
+    background: #ffffff;
+    color: #2f3e46;
+    border-radius: 24px;
+    padding: 40px;
+    margin: 40px 0;
+    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+}
+
+h2 {
+    color: #1f6f78;
+    margin-bottom: 15px;
+}
+
+p {
+    line-height: 1.75;
+    font-size: 1.02rem;
+}
+
+button {
+    padding: 12px 26px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #1f6f78, #d4af37);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 22px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.hidden {
+    display: none;
+    margin-top: 22px;
+}
+
+.mood button {
+    background: #f1e1c1;
+    color: #2f3e46;
+    margin: 8px;
+}
+
+.mood button:hover {
+    background: #e7cfa0;
+}
+
+.quote {
+    font-style: italic;
+    color: #6b5f52;
+    margin-top: 12px;
+}
+
+/* ===== FIX 2: FOOTER VISIBILITY ===== */
+.footer {
+    margin-top: 100px;
+    padding-bottom: 40px;
+    font-size: 1rem;
+    color: #f5e6b8;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>My Sakhii 🌸</h1>
+<div class="subtitle">
+Some bonds are not made by time — they are remembered by the soul.  
+Just like Radha and Krishna.
+</div>
+
+<div class="card">
+<h2>Why You Matter 💖</h2>
+<p>
+Some people enter our lives softly, without noise or announcement,  
+and yet their presence changes the way we breathe, think, and feel.  
+You are that presence.
+</p>
+<p>
+You matter not because you try to be important,  
+but because your existence itself brings calm, honesty, and warmth.  
+You listen without judging, stay without conditions,  
+and understand without needing explanations.
+</p>
+<button onclick="toggleText('why')">Read deeper</button>
+<div id="why" class="hidden">
+<p>
+In a world that constantly asks us to become more,  
+you remind me that being real is enough.  
+You make space for silence, for vulnerability, for truth.  
+That kind of presence is rare — and priceless.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Our Bond ✨</h2>
+<p>
+Our bond is not loud or demanding.  
+It does not need daily proofs or constant words.  
+It simply exists — steady, calm, and rooted.
+</p>
+<p>
+Like the connection between Radha and Krishna,  
+it flows beyond form, beyond labels, beyond expectations.  
+It survives distance, time, and silence  
+because it is built on understanding.
+</p>
+<button onclick="toggleText('bond')">What it means to me</button>
+<div id="bond" class="hidden">
+<p>
+Some bonds are not about possession,  
+they are about presence.  
+Not about holding on tightly,  
+but about knowing you’re never truly apart.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h2>Radha–Krishna Thought 🌿</h2>
+<p class="quote">
+“Radha didn’t walk beside Krishna everywhere,  
+yet Krishna walked within her always.”
+</p>
+<p>
+Radha–Krishna represent a love and friendship  
+that is pure, selfless, and free from fear of loss.  
+A connection that does not ask,  
+but simply gives.
+</p>
+<button onclick="toggleText('rk')">Why this reminds me of you</button>
+<div id="rk" class="hidden">
+<p>
+Some people become part of your inner world so deeply  
+that even when they are not around,  
+their presence guides you quietly.  
+That is devotion. That is trust.  
+That is you.
+</p>
+</div>
+</div>
+
+<div class="card mood">
+<h2>How Are You Feeling Today? 🌈</h2>
+<button onclick="setMood('happy')">😊 Happy</button>
+<button onclick="setMood('sad')">😔 Sad</button>
+<button onclick="setMood('tired')">😴 Tired</button>
+<button onclick="setMood('lost')">🌧️ Lost</button>
+<div id="moodText" class="hidden"></div>
+</div>
+
+<div class="card">
+<h2>A Promise 🤍</h2>
+<p>
+This is not a momentary feeling,  
+not something written for a phase of life.
+</p>
+<p>
+It is a promise of constancy —  
+like devotion that remains steady  
+even when circumstances change.
+</p>
+<button onclick="toggleText('promise')">Read the promise</button>
+<div id="promise" class="hidden">
+<p>
+I promise to stay —  
+in your calm days and your chaotic ones,  
+in your strength and your self-doubt,  
+without trying to change you,  
+without trying to own you.
+</p>
+</div>
+</div>
+
+<div class="card">
+<h2>One Last Note 🌙</h2>
+<p>
+If someday the world feels heavy,  
+or you feel unseen or unheard,
+</p>
+<button onclick="toggleText('last')">Read slowly</button>
+<div id="last" class="hidden">
+<p>
+remember this —  
+someone somewhere thanks Krishna every day  
+for your existence,  
+for your kindness,  
+for the light you bring without even realizing it.
+</p>
+</div>
+</div>
+
+<div class="footer">
+🌸 Hare Krishna • Made with devotion by your Sakha 🌸
+</div>
+
+</div>
+
+<script>
+function toggleText(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function setMood(mood) {
+    const text = document.getElementById("moodText");
+    text.style.display = "block";
+
+    if (mood === "happy") {
+        text.innerText = "Your happiness feels like a prayer answered 🌸";
+    } else if (mood === "sad") {
+        text.innerText = "Even Radha cried — and still loved deeply 🤍";
+    } else if (mood === "tired") {
+        text.innerText = "Rest. Krishna walks beside those who pause 🌿";
+    } else {
+        text.innerText = "Sometimes being lost is how we find divine paths 🌙";
+    }
+}
+</script>
+
+</body>
+</html>
