@@ -216,7 +216,6 @@ par bolne ka mann na ho.
 <div id="openWhenText" class="hidden"></div>
 </div>
 
-<!-- 🔐 PASSWORD PROTECTED SECTION (NEW, CONTENT ORIGINAL) -->
 <div class="card">
 <h2>A Secret Only for You 🔐</h2>
 
@@ -284,12 +283,10 @@ function openWhen(type) {
     }
 }
 
-/* 🔐 PASSWORD LOGIC (NO CONTENT CHANGE) */
 function unlockSecret() {
     const input = document.getElementById("secretPassword").value;
     const box = document.getElementById("secretContent");
-    const correctPassword = "sakhii";   // change if you want
-
+    const correctPassword = "sakhii";  
     box.style.display = "block";
 
     if (input === correctPassword) {
@@ -315,3 +312,4 @@ function unlockSecret() {
 
 </body>
 </html>
+
