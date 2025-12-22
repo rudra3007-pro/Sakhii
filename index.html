@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* ===== FIX 1: SOLID BACKGROUND (NO FADE) ===== */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -90,7 +89,15 @@ button:hover {
     margin-top: 12px;
 }
 
-/* ===== FIX 2: FOOTER VISIBILITY ===== */
+input[type="password"] {
+    padding: 12px 18px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 80%;
+    max-width: 300px;
+    margin-top: 15px;
+}
+
 .footer {
     margin-top: 100px;
     padding-bottom: 40px;
@@ -193,44 +200,31 @@ That is you.
 </div>
 
 <div class="card">
-<h2>A Promise 🤍</h2>
+<h2>Open When… 🤍</h2>
 <p>
-This is not a momentary feeling,  
-not something written for a phase of life.
+Ye words tab ke liye hain  
+jab tumhe kisi ki zarurat ho  
+par bolne ka mann na ho.
 </p>
-<p>
-It is a promise of constancy —  
-like devotion that remains steady  
-even when circumstances change.
-</p>
-<button onclick="toggleText('promise')">Read the promise</button>
-<div id="promise" class="hidden">
-<p>
-I promise to stay —  
-in your calm days and your chaotic ones,  
-in your strength and your self-doubt,  
-without trying to change you,  
-without trying to own you.
-</p>
-</div>
+
+<button onclick="openWhen('alone')">🫂 Open when you feel alone</button>
+<button onclick="openWhen('sad')">🌧️ Open when you’re sad</button>
+<button onclick="openWhen('sleep')">🌙 Open when you can’t sleep</button>
+<button onclick="openWhen('doubt')">🌱 Open when you doubt yourself</button>
+<button onclick="openWhen('miss')">🤍 Open when you miss me</button>
+
+<div id="openWhenText" class="hidden"></div>
 </div>
 
+<!-- 🔐 PASSWORD PROTECTED SECTION (NEW, CONTENT ORIGINAL) -->
 <div class="card">
-<h2>One Last Note 🌙</h2>
-<p>
-If someday the world feels heavy,  
-or you feel unseen or unheard,
-</p>
-<button onclick="toggleText('last')">Read slowly</button>
-<div id="last" class="hidden">
-<p>
-remember this —  
-someone somewhere thanks Krishna every day  
-for your existence,  
-for your kindness,  
-for the light you bring without even realizing it.
-</p>
-</div>
+<h2>A Secret Only for You 🔐</h2>
+
+<input type="password" id="secretPassword" placeholder="Enter the secret">
+<br>
+<button onclick="unlockSecret()">Unlock</button>
+
+<div id="secretContent" class="hidden"></div>
 </div>
 
 <div class="footer">
@@ -259,6 +253,64 @@ function setMood(mood) {
         text.innerText = "Sometimes being lost is how we find divine paths 🌙";
     }
 }
+
+function openWhen(type) {
+    const box = document.getElementById("openWhenText");
+    box.style.display = "block";
+
+    if (type === "alone") {
+        box.innerText =
+        "Tum akeli nahi ho, bas thodi thaki hui ho. Agar is waqt koi saath nahi, toh ye words hi sahi — main yahin hoon.";
+    }
+
+    if (type === "sad") {
+        box.innerText =
+        "Tumhara udaas hona tumhari kamzori nahi hai. Ye bas proof hai ki tum deeply feel karti ho.";
+    }
+
+    if (type === "sleep") {
+        box.innerText =
+        "Raat tab bhaari lagti hai jab dimaag chup nahi hota. Aankh band karo, gehri saans lo. Tum safe ho.";
+    }
+
+    if (type === "doubt") {
+        box.innerText =
+        "Tum khud pe doubt karti ho kyunki tum careless nahi ho. Tum already kaafi ho.";
+    }
+
+    if (type === "miss") {
+        box.innerText =
+        "Agar tumhe meri yaad aa rahi hai, samajh lo main bhi kahin na kahin tumhe yaad kar raha hoon. And aapka sakhaa aapke saath hamesha hai";
+    }
+}
+
+/* 🔐 PASSWORD LOGIC (NO CONTENT CHANGE) */
+function unlockSecret() {
+    const input = document.getElementById("secretPassword").value;
+    const box = document.getElementById("secretContent");
+    const correctPassword = "sakhii";   // change if you want
+
+    box.style.display = "block";
+
+    if (input === correctPassword) {
+        box.innerText =
+        "Agar tum yahan tak pahunchi ho,\n" +
+        "toh iska matlab tum samajhti ho\n" +
+        "ye website sirf words ka collection nahi hai.\n\n" +
+        "Ye ek jagah hai\n" +
+        "jahan tumhe strong hone ki zarurat nahi,\n" +
+        "jahan tumhe explain karne ki zarurat nahi.\n\n" +
+        "Yahan tum bas reh sakti ho.\n\n" +
+        "Aur haan,\n" +
+        "agar kabhi lage ki duniya thodi zyada ho rahi hai,\n" +
+        "toh yaad rakhna —\n" +
+        "KRISHNA IS ALWAYS WITH YOUU🤍";
+    } else {
+        box.innerText =
+        "Itni asaani se nahi sakhii...password sahi daalo🤍";
+    }
+}
+
 </script>
 
 </body>
