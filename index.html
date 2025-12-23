@@ -1,315 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>For My Sakhii 🌸</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>For My Sakhii 🌸</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #0f2027;
-    color: #f7f3e9;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f2027;
+            color: #f7f3e9;
+        }
 
-.container {
-    max-width: 950px;
-    margin: auto;
-    padding: 70px 20px;
-    text-align: center;
-}
+        .container {
+            max-width: 950px;
+            margin: auto;
+            padding: 70px 20px;
+            text-align: center;
+        }
 
-h1 {
-    font-family: 'Pacifico', cursive;
-    font-size: 3.2rem;
-    color: #d4af37;
-}
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.2rem;
+            color: #d4af37;
+        }
 
-.subtitle {
-    font-size: 1.15rem;
-    color: #e0d9c6;
-    margin-bottom: 70px;
-}
+        .subtitle {
+            font-size: 1.15rem;
+            color: #e0d9c6;
+            margin-bottom: 70px;
+        }
 
-.card {
-    background: #ffffff;
-    color: #2f3e46;
-    border-radius: 24px;
-    padding: 40px;
-    margin: 40px 0;
-    box-shadow: 0 18px 35px rgba(0,0,0,0.25);
-}
+        .card {
+            background: #ffffff;
+            color: #2f3e46;
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+        }
 
-h2 {
-    color: #1f6f78;
-    margin-bottom: 15px;
-}
+        h2 {
+            color: #1f6f78;
+            margin-bottom: 15px;
+        }
 
-p {
-    line-height: 1.75;
-    font-size: 1.02rem;
-}
+        p {
+            line-height: 1.75;
+            font-size: 1.02rem;
+        }
 
-button {
-    padding: 12px 26px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(135deg, #1f6f78, #d4af37);
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-top: 22px;
-}
+        button {
+            padding: 12px 26px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #1f6f78, #d4af37);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 22px;
+        }
 
-button:hover {
-    opacity: 0.9;
-}
+        button:hover {
+            opacity: 0.9;
+        }
 
-.hidden {
-    display: none;
-    margin-top: 22px;
-}
+        .hidden {
+            display: none;
+            margin-top: 22px;
+        }
 
-.mood button {
-    background: #f1e1c1;
-    color: #2f3e46;
-    margin: 8px;
-}
+        .mood button {
+            background: #f1e1c1;
+            color: #2f3e46;
+            margin: 8px;
+        }
 
-.mood button:hover {
-    background: #e7cfa0;
-}
+        .mood button:hover {
+            background: #e7cfa0;
+        }
 
-.quote {
-    font-style: italic;
-    color: #6b5f52;
-    margin-top: 12px;
-}
+        .quote {
+            font-style: italic;
+            color: #6b5f52;
+            margin-top: 12px;
+        }
 
-input[type="password"] {
-    padding: 12px 18px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    width: 80%;
-    max-width: 300px;
-    margin-top: 15px;
-}
+        input[type="password"] {
+            padding: 12px 18px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 300px;
+            margin-top: 15px;
+        }
 
-.footer {
-    margin-top: 100px;
-    padding-bottom: 40px;
-    font-size: 1rem;
-    color: #f5e6b8;
-    text-align: center;
-}
-</style>
+        .footer {
+            margin-top: 100px;
+            padding-bottom: 40px;
+            font-size: 1rem;
+            color: #f5e6b8;
+            text-align: center;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .photo {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .photo img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 18px;
+            filter: blur(59px);
+            transition: filter 0.4s ease;
+        }
+
+
+        .photo.reveal img {
+            filter: blur(0);
+        }
+
+        .photo::after {
+            content: "Tap to reveal";
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 14px;
+            font-size: 0.8rem;
+            pointer-events: none;
+        }
+
+        .photo.reveal::after {
+            content: "Tap to hide";
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h1>My Sakhii 🌸</h1>
-<div class="subtitle">
-Some bonds are not made by time — they are remembered by the soul.  
-Just like Radha and Krishna.
-</div>
+        <h1>My Sakhii 🌸</h1>
+        <div class="subtitle">
+            Some bonds are not made by time — they are remembered by the soul.
+            Just like Radha and Krishna.
+        </div>
 
-<div class="card">
-<h2>Why You Matter 💖</h2>
-<p>
-Some people enter our lives softly, without noise or announcement,  
-and yet their presence changes the way we breathe, think, and feel.  
-You are that presence.
-</p>
-<p>
-You matter not because you try to be important,  
-but because your existence itself brings calm, honesty, and warmth.  
-You listen without judging, stay without conditions,  
-and understand without needing explanations.
-</p>
-<button onclick="toggleText('why')">Read deeper</button>
-<div id="why" class="hidden">
-<p>
-In a world that constantly asks us to become more,  
-you remind me that being real is enough.  
-You make space for silence, for vulnerability, for truth.  
-That kind of presence is rare — and priceless.
-</p>
-</div>
-</div>
+        <div class="card">
+            <h2>Why You Matter 💖</h2>
+            <p>
+                Some people enter our lives softly, without noise or announcement,
+                and yet their presence changes the way we breathe, think, and feel.
+                You are that presence.
+            </p>
+            <p>
+                You matter not because you try to be important,
+                but because your existence itself brings calm, honesty, and warmth.
+                You listen without judging, stay without conditions,
+                and understand without needing explanations.
+            </p>
+            <button onclick="toggleText('why')">Read deeper</button>
+            <div id="why" class="hidden">
+                <p>
+                    In a world that constantly asks us to become more,
+                    you remind me that being real is enough.
+                    You make space for silence, for vulnerability, for truth.
+                    That kind of presence is rare — and priceless.
+                </p>
+            </div>
+        </div>
 
-<div class="card">
-<h2>Our Bond ✨</h2>
-<p>
-Our bond is not loud or demanding.  
-It does not need daily proofs or constant words.  
-It simply exists — steady, calm, and rooted.
-</p>
-<p>
-Like the connection between Radha and Krishna,  
-it flows beyond form, beyond labels, beyond expectations.  
-It survives distance, time, and silence  
-because it is built on understanding.
-</p>
-<button onclick="toggleText('bond')">What it means to me</button>
-<div id="bond" class="hidden">
-<p>
-Some bonds are not about possession,  
-they are about presence.  
-Not about holding on tightly,  
-but about knowing you’re never truly apart.
-</p>
-</div>
-</div>
+        <div class="card">
+            <h2>Our Bond ✨</h2>
+            <p>
+                Our bond is not loud or demanding.
+                It does not need daily proofs or constant words.
+                It simply exists — steady, calm, and rooted.
+            </p>
+            <p>
+                Like the connection between Radha and Krishna,
+                it flows beyond form, beyond labels, beyond expectations.
+                It survives distance, time, and silence
+                because it is built on understanding.
+            </p>
+            <button onclick="toggleText('bond')">What it means to me</button>
+            <div id="bond" class="hidden">
+                <p>
+                    Some bonds are not about possession,
+                    they are about presence.
+                    Not about holding on tightly,
+                    but about knowing you’re never truly apart.
+                </p>
+            </div>
+        </div>
 
-<div class="card">
-<h2>Radha–Krishna Thought 🌿</h2>
-<p class="quote">
-“Radha didn’t walk beside Krishna everywhere,  
-yet Krishna walked within her always.”
-</p>
-<p>
-Radha–Krishna represent a love and friendship  
-that is pure, selfless, and free from fear of loss.  
-A connection that does not ask,  
-but simply gives.
-</p>
-<button onclick="toggleText('rk')">Why this reminds me of you</button>
-<div id="rk" class="hidden">
-<p>
-Some people become part of your inner world so deeply  
-that even when they are not around,  
-their presence guides you quietly.  
-That is devotion. That is trust.  
-That is you.
-</p>
-</div>
-</div>
+        <div class="card">
+            <h2>Radha–Krishna Thought 🌿</h2>
+            <p class="quote">
+                “Radha didn’t walk beside Krishna everywhere,
+                yet Krishna walked within her always.”
+            </p>
+            <p>
+                Radha–Krishna represent a love and friendship
+                that is pure, selfless, and free from fear of loss.
+                A connection that does not ask,
+                but simply gives.
+            </p>
+            <button onclick="toggleText('rk')">Why this reminds me of you</button>
+            <div id="rk" class="hidden">
+                <p>
+                    Some people become part of your inner world so deeply
+                    that even when they are not around,
+                    their presence guides you quietly.
+                    That is devotion. That is trust.
+                    That is you.
+                </p>
+            </div>
+        </div>
 
-<div class="card mood">
-<h2>How Are You Feeling Today? 🌈</h2>
-<button onclick="setMood('happy')">😊 Happy</button>
-<button onclick="setMood('sad')">😔 Sad</button>
-<button onclick="setMood('tired')">😴 Tired</button>
-<button onclick="setMood('lost')">🌧️ Lost</button>
-<div id="moodText" class="hidden"></div>
-</div>
+        <div class="card mood">
+            <h2>How Are You Feeling Today? 🌈</h2>
+            <button onclick="setMood('happy')">😊 Happy</button>
+            <button onclick="setMood('sad')">😔 Sad</button>
+            <button onclick="setMood('tired')">😴 Tired</button>
+            <button onclick="setMood('lost')">🌧️ Lost</button>
+            <div id="moodText" class="hidden"></div>
+        </div>
+        <div class="card">
+            <h2>Memories in Frames 📸</h2>
+            <p>
+                Kuch pal jo words se zyada bolte hain.
+            </p>
 
-<div class="card">
-<h2>Open When… 🤍</h2>
-<p>
-Ye words tab ke liye hain  
-jab tumhe kisi ki zarurat ho  
-par bolne ka mann na ho.
-</p>
+            <div class="photo-grid">
+                <div class="photo" onclick="togglePhoto(this)">
+                    <img src="1.jpeg" alt="memory 1">
+                </div>
 
-<button onclick="openWhen('alone')">🫂 Open when you feel alone</button>
-<button onclick="openWhen('sad')">🌧️ Open when you’re sad</button>
-<button onclick="openWhen('sleep')">🌙 Open when you can’t sleep</button>
-<button onclick="openWhen('doubt')">🌱 Open when you doubt yourself</button>
-<button onclick="openWhen('miss')">🤍 Open when you miss me</button>
+                <!-- <div class="photo" onclick="togglePhoto(this)">
+            <img src="photo2.jpg" alt="memory 2">
+        </div> -->
 
-<div id="openWhenText" class="hidden"></div>
-</div>
+                <!-- <div class="photo" onclick="togglePhoto(this)">
+            <img src="photo3.jpg" alt="memory 3">
+        </div> -->
+            </div>
+        </div>
+        <div class="card">
+            <h2>Open When… 🤍</h2>
+            <p>
+                Ye words tab ke liye hain
+                jab tumhe kisi ki zarurat ho
+                par bolne ka mann na ho.
+            </p>
 
-<div class="card">
-<h2>A Secret Only for You 🔐</h2>
+            <button onclick="openWhen('alone')">🫂 Open when you feel alone</button>
+            <button onclick="openWhen('sad')">🌧️ Open when you’re sad</button>
+            <button onclick="openWhen('sleep')">🌙 Open when you can’t sleep</button>
+            <button onclick="openWhen('doubt')">🌱 Open when you doubt yourself</button>
+            <button onclick="openWhen('miss')">🤍 Open when you miss me</button>
 
-<input type="password" id="secretPassword" placeholder="Enter the secret">
-<br>
-<button onclick="unlockSecret()">Unlock</button>
+            <div id="openWhenText" class="hidden"></div>
+        </div>
 
-<div id="secretContent" class="hidden"></div>
-</div>
+        <div class="card">
+            <h2>A Secret Only for You 🔐</h2>
 
-<div class="footer">
-🌸 Hare Krishna • Made with devotion by your Sakha 🌸
-</div>
+            <input type="password" id="secretPassword" placeholder="Enter the secret">
+            <br>
+            <button onclick="unlockSecret()">Unlock</button>
 
-</div>
+            <div id="secretContent" class="hidden"></div>
+        </div>
 
-<script>
-function toggleText(id) {
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "block" ? "none" : "block";
-}
+        <div class="footer">
+            🌸 Hare Krishna • Made with devotion by your Sakha 🌸
+        </div>
 
-function setMood(mood) {
-    const text = document.getElementById("moodText");
-    text.style.display = "block";
+    </div>
 
-    if (mood === "happy") {
-        text.innerText = "Your happiness feels like a prayer answered 🌸";
-    } else if (mood === "sad") {
-        text.innerText = "Even Radha cried — and still loved deeply 🤍";
-    } else if (mood === "tired") {
-        text.innerText = "Rest. Krishna walks beside those who pause 🌿";
-    } else {
-        text.innerText = "Sometimes being lost is how we find divine paths 🌙";
-    }
-}
+    <script>
+        function toggleText(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === "block" ? "none" : "block";
+        }
 
-function openWhen(type) {
-    const box = document.getElementById("openWhenText");
-    box.style.display = "block";
+        function setMood(mood) {
+            const text = document.getElementById("moodText");
+            text.style.display = "block";
 
-    if (type === "alone") {
-        box.innerText =
-        "Tum akeli nahi ho, bas thodi thaki hui ho. Agar is waqt koi saath nahi, toh ye words hi sahi — main yahin hoon.";
-    }
+            if (mood === "happy") {
+                text.innerText = "Your happiness feels like a prayer answered 🌸";
+            } else if (mood === "sad") {
+                text.innerText = "Even Radha cried — and still loved deeply 🤍";
+            } else if (mood === "tired") {
+                text.innerText = "Rest. Krishna walks beside those who pause 🌿";
+            } else {
+                text.innerText = "Sometimes being lost is how we find divine paths 🌙";
+            }
+        }
 
-    if (type === "sad") {
-        box.innerText =
-        "Tumhara udaas hona tumhari kamzori nahi hai. Ye bas proof hai ki tum deeply feel karti ho.";
-    }
+        function openWhen(type) {
+            const box = document.getElementById("openWhenText");
+            box.style.display = "block";
 
-    if (type === "sleep") {
-        box.innerText =
-        "Raat tab bhaari lagti hai jab dimaag chup nahi hota. Aankh band karo, gehri saans lo. Tum safe ho.";
-    }
+            if (type === "alone") {
+                box.innerText =
+                    "Tum akeli nahi ho, bas thodi thaki hui ho. Agar is waqt koi saath nahi, toh ye words hi sahi — main yahin hoon.";
+            }
 
-    if (type === "doubt") {
-        box.innerText =
-        "Tum khud pe doubt karti ho kyunki tum careless nahi ho. Tum already kaafi ho.";
-    }
+            if (type === "sad") {
+                box.innerText =
+                    "Tumhara udaas hona tumhari kamzori nahi hai. Ye bas proof hai ki tum deeply feel karti ho.";
+            }
 
-    if (type === "miss") {
-        box.innerText =
-        "Agar tumhe meri yaad aa rahi hai, samajh lo main bhi kahin na kahin tumhe yaad kar raha hoon. And aapka sakhaa aapke saath hamesha hai";
-    }
-}
+            if (type === "sleep") {
+                box.innerText =
+                    "Raat tab bhaari lagti hai jab dimaag chup nahi hota. Aankh band karo, gehri saans lo. Tum safe ho.";
+            }
 
-function unlockSecret() {
-    const input = document.getElementById("secretPassword").value;
-    const box = document.getElementById("secretContent");
-    const correctPassword = "sakhii";  
-    box.style.display = "block";
+            if (type === "doubt") {
+                box.innerText =
+                    "Tum khud pe doubt karti ho kyunki tum careless nahi ho. Tum already kaafi ho.";
+            }
 
-    if (input === correctPassword) {
-        box.innerText =
-        "Agar tum yahan tak pahunchi ho,\n" +
-        "toh iska matlab tum samajhti ho\n" +
-        "ye website sirf words ka collection nahi hai.\n\n" +
-        "Ye ek jagah hai\n" +
-        "jahan tumhe strong hone ki zarurat nahi,\n" +
-        "jahan tumhe explain karne ki zarurat nahi.\n\n" +
-        "Yahan tum bas reh sakti ho.\n\n" +
-        "Aur haan,\n" +
-        "agar kabhi lage ki duniya thodi zyada ho rahi hai,\n" +
-        "toh yaad rakhna —\n" +
-        "KRISHNA IS ALWAYS WITH YOUU🤍";
-    } else {
-        box.innerText =
-        "Itni asaani se nahi sakhii...password sahi daalo🤍";
-    }
-}
+            if (type === "miss") {
+                box.innerText =
+                    "Agar tumhe meri yaad aa rahi hai, samajh lo main bhi kahin na kahin tumhe yaad kar raha hoon. And aapka sakhaa aapke saath hamesha hai";
+            }
+        }
+        function togglePhoto(element) {
+            element.classList.toggle("reveal");
+        }
 
-</script>
+
+        function unlockSecret() {
+            const input = document.getElementById("secretPassword").value;
+            const box = document.getElementById("secretContent");
+            const correctPassword = "sakhii";
+            box.style.display = "block";
+
+            if (input === correctPassword) {
+                box.innerText =
+                    "Agar tum yahan tak pahunchi ho,\n" +
+                    "toh iska matlab tum samajhti ho\n" +
+                    "ye website sirf words ka collection nahi hai.\n\n" +
+                    "Ye ek jagah hai\n" +
+                    "jahan tumhe strong hone ki zarurat nahi,\n" +
+                    "jahan tumhe explain karne ki zarurat nahi.\n\n" +
+                    "Yahan tum bas reh sakti ho.\n\n" +
+                    "Aur haan,\n" +
+                    "agar kabhi lage ki duniya thodi zyada ho rahi hai,\n" +
+                    "toh yaad rakhna —\n" +
+                    "KRISHNA IS ALWAYS WITH YOUU🤍";
+            } else {
+                box.innerText =
+                    "Itni asaani se nahi sakhii...password sahi daalo🤍";
+            }
+        }
+
+    </script>
 
 </body>
-</html>
 
+</html>
