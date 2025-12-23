@@ -152,6 +152,51 @@
         .photo.reveal::after {
             content: "Tap to hide";
         }
+
+        .need-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .need-list li {
+            margin: 12px 0;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .need-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1f6f78;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .reveal-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+        }
+
+        .reveal-list li {
+            display: none;
+            margin: 14px 0;
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .reveal-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1f6f78;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
     </style>
 </head>
 
@@ -266,6 +311,29 @@
             </div>
         </div>
         <div class="card">
+            <h2>Things You Don’t Need to Be 🌿</h2>
+            <p>
+                Ye cheezein yaad rakhna,
+                khaaskar un dino me
+                jab khud pe thoda zyada bojh lagne lage.
+            </p>
+
+            <ul class="need-list reveal-list">
+                <li>You don’t need to be perfect.</li>
+                <li>You don’t need to be strong every day.</li>
+                <li>You don’t need to reply instantly.</li>
+                <li>You don’t need to explain yourself.</li>
+                <li>You don’t need to be okay all the time.</li>
+            </ul>
+
+            <button id="revealBtn"  onclick="revealNext()">Reveal next</button>
+
+            <p id="finalLine" class="hidden" style="margin-top:20px; font-style:italic; color:#5f6f73;">
+                Bas rehna kaafi hai.
+            </p>
+        </div>
+
+        <div class="card">
             <h2>Open When… 🤍</h2>
             <p>
                 Ye words tab ke liye hain
@@ -377,6 +445,20 @@
                     "Itni asaani se nahi sakhii...password sahi daalo🤍";
             }
         }
+        let revealIndex = 0;
+function revealNext() {
+    const items = document.querySelectorAll(".reveal-list li");
+    const finalLine = document.getElementById("finalLine");
+    const btn = document.getElementById("revealBtn");
+
+    if (revealIndex < items.length) {
+        items[revealIndex].style.display = "block";
+        revealIndex++;
+    } else {
+        finalLine.style.display = "block";
+        btn.style.display = "none";
+    }
+}
 
     </script>
 
