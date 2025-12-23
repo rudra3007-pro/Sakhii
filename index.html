@@ -301,13 +301,13 @@
                     <img src="1.jpeg" alt="memory 1">
                 </div>
 
-                <!-- <div class="photo" onclick="togglePhoto(this)">
-            <img src="photo2.jpg" alt="memory 2">
-        </div> -->
+                <div class="photo" onclick="togglePhoto(this)">
+            <img src="2.jpeg" alt="memory 2">
+        </div> 
 
-                <!-- <div class="photo" onclick="togglePhoto(this)">
-            <img src="photo3.jpg" alt="memory 3">
-        </div> -->
+                <div class="photo" onclick="togglePhoto(this)">
+            <img src="3.jpeg" alt="memory 3">
+        </div>
             </div>
         </div>
         <div class="card">
@@ -326,7 +326,7 @@
                 <li>You don’t need to be okay all the time.</li>
             </ul>
 
-            <button id="revealBtn"  onclick="revealNext()">Reveal next</button>
+            <button id="revealBtn" onclick="revealNext()">Reveal next</button>
 
             <p id="finalLine" class="hidden" style="margin-top:20px; font-style:italic; color:#5f6f73;">
                 Bas rehna kaafi hai.
@@ -446,19 +446,19 @@
             }
         }
         let revealIndex = 0;
-function revealNext() {
-    const items = document.querySelectorAll(".reveal-list li");
-    const finalLine = document.getElementById("finalLine");
-    const btn = document.getElementById("revealBtn");
+        function revealNext() {
+            const items = document.querySelectorAll(".reveal-list li");
+            const finalLine = document.getElementById("finalLine");
+            const btn = document.getElementById("revealBtn");
 
-    if (revealIndex < items.length) {
-        items[revealIndex].style.display = "block";
-        revealIndex++;
-    } else {
-        finalLine.style.display = "block";
-        btn.style.display = "none";
-    }
-}
+            if (revealIndex < items.length) {
+                items[revealIndex].style.display = "block";
+                revealIndex++;
+            } else {
+                finalLine.style.display = "block";
+                btn.style.display = "none";
+            }
+        }
 
     </script>
 
